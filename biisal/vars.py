@@ -33,12 +33,12 @@ class Var(object):
     
     else:
         ON_HEROKU = False
-    FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'.herokuapp.com'
+    FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', 'https://trynewfl-841caae1c9df.herokuapp.com/') else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',True))
     if HAS_SSL:
-        URL = "https://{}/".format(FQDN)
+        URL = "https://trynewfl-841caae1c9df.herokuapp.com//".format(FQDN)
     else:
-        URL = "http://{}/".format(FQDN)
+        URL = "https://trynewfl-841caae1c9df.herokuapp.com//".format(FQDN)
     DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://satyajeetkumarofficial:Guriya50@cluster0.dmmijuh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', 'bisal_files')) 
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1002158102453")).split()))   
